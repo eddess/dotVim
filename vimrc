@@ -167,7 +167,7 @@ if has('gui_running')
 	if has('mac')
 		autocmd GUIEnter * set guifont=menlo:h12
 	elseif has('win32')
-		autocmd GUIEnter * set guifont=consolas:h10
+		autocmd GUIEnter * set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 	endif
 
 	" I hate sounds!
