@@ -163,7 +163,12 @@ if has('gui_running')
 	" Window size
 	set lines=48 columns=90
 
-	autocmd GUIEnter * set guifont=menlo:h12
+	" set font
+	if has('mac')
+		autocmd GUIEnter * set guifont=menlo:h12
+	elseif has('win32')
+		autocmd GUIEnter * set guifont=consolas:h10
+	endif
 
 	" I hate sounds!
 	autocmd GUIEnter * set visualbell t_vb=
