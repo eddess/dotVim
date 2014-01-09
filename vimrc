@@ -5,8 +5,12 @@ if has('win32')
 	source $VIMRUNTIME/mswin.vim
 endif
 
-let g:progdata="~/ProgramData/vim"
-
+if has ('win32')
+	let g:progdata="~/../ProgramData/vim"
+else
+	let g:progdata="~/ProgramData/vim"
+endif
+	
 " Leader keys
 set showcmd
 let mapleader=","
@@ -188,6 +192,9 @@ set listchars=tab:▸\ ,extends:>,precedes:\<
 " textwidth
 set textwidth=80
 set colorcolumn=+1
+
+" unmap c-v in normal
+nunmap <c-v>
 
 
 
