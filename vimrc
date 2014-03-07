@@ -193,8 +193,7 @@ set listchars=tab:▸\ ,extends:>,precedes:\<
 set textwidth=80
 set colorcolumn=+1
 
-" unmap c-v in normal
-nunmap <c-v>
-
-
-
+" unmap c-v in normal mode on windows
+if has('win32')
+	nunmap <c-v>
+endif
