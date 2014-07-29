@@ -1,4 +1,10 @@
 set nocompatible
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
 if has('win32')
 	" Windows settings
