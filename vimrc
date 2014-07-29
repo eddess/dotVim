@@ -165,7 +165,7 @@ nnoremap <leader>n :call g:ToggleLineNumbers()<cr>
 " these are done when the GUI loads
 if has('gui_running')
 	" Window size
-	set lines=48 columns=90
+	set lines=48 columns=81
 
 	" set font
 	if has('mac')
