@@ -110,10 +110,8 @@ colorscheme molokai
 set incsearch
 set hlsearch
 
-"Pathogen
-execute pathogen#infect()
-
 " Powerline
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols="fancy"
 set noshowmode
 
@@ -175,7 +173,7 @@ if has('gui_running')
 
 	" set font
 	if has('mac')
-		autocmd GUIEnter * set guifont=Monaco:h12
+		autocmd GUIEnter * set guifont=Monaco\ for\ Powerline:h12
 	elseif has('win32')
 		autocmd GUIEnter * set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 	endif

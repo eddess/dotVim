@@ -1,2 +1,6 @@
 ftplugin/
 .netrwhist
+
+# bundles
+bundle/*
+!bundle/vundle
