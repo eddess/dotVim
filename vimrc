@@ -169,7 +169,7 @@ if has('gui_running')
 
 	" set font
 	if has('mac')
-		autocmd GUIEnter * set guifont=menlo:h12
+		autocmd GUIEnter * set guifont=Monaco:h12
 	elseif has('win32')
 		autocmd GUIEnter * set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 	endif
@@ -197,3 +197,6 @@ set colorcolumn=+1
 if has('win32')
 	nunmap <c-v>
 endif
+
+" mouse support
+set mouse=a
