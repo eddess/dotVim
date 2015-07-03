@@ -103,8 +103,8 @@ set copyindent
 set noexpandtab
 
 " Color scheme
-set background=dark
-colorscheme molokai
+" set background=dark
+" colorscheme molokai
 
 " Searching
 set incsearch
@@ -118,8 +118,8 @@ set noshowmode
 " Auto change working directory to current file
 set autochdir
 
-" Always show tab list
-set showtabline=2
+" tab list
+set showtabline=0
 
 " Format Tab titles
 set guitablabel=%N.\ %t\ %M

@@ -4,3 +4,5 @@ ftplugin/
 # bundles
 bundle/*
 !bundle/vundle
+
+progdata/
