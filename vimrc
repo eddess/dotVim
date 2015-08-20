@@ -1,40 +1,24 @@
-set nocompatible
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+" plugin management with pathogen
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim
+silent! execute pathogen#infect()
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
 
-if has('win32')
-	" Windows settings
-	source $VIMRUNTIME/mswin.vim
+
+" === General options ===
+let g:progdata="~/.programdata/vim"
+if !isdirectory(expand(g:progdata))
+	call mkdir(expand(g:progdata), "p")
 endif
 
-if has ('win32')
-	let g:progdata="~/../ProgramData/vim"
-else
-	let g:progdata="~/ProgramData/vim"
-endif
-	
-" Leader keys
-set showcmd
-let mapleader=","
-let maplocalleader="\\"
-
-" custom runtime path
-set runtimepath+=,~/.vim
-
-" viminfo
 execute "set viminfo='20,\"100,:30,%,n".g:progdata."/viminfo.txt"
 
+set nocompatible
 set encoding=utf-8
 setglobal fileencoding=utf-8
 set modelines=0
 set laststatus=2
 
-
-" Turn on filetype based indentation rules
+" syntax highlighting
 filetype plugin indent on
 syntax on
 
@@ -76,7 +60,11 @@ endif
 set guioptions-=T
 
 " swap and backup settings
-set noswapfile " it's 2013 lol (excuse people use online)
+execute "set directory=".g:progdata."/swp//"
+if !isdirectory(expand(&directory))
+        call mkdir(expand(&directory), "p")
+endif
+
 set backup 
 execute "set backupdir=".g:progdata."/backups//"
 if !isdirectory(expand(&backupdir))
@@ -102,17 +90,15 @@ set preserveindent
 set copyindent
 set noexpandtab
 
-" Color scheme
-" set background=dark
-" colorscheme molokai
+" Leader keys
+set showcmd
+let mapleader=","
+let maplocalleader="\\"
 
 " Searching
 set incsearch
 set hlsearch
 
-" Powerline
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-let g:Powerline_symbols="fancy"
 set noshowmode
 
 " Auto change working directory to current file
@@ -160,13 +146,12 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Line numbering toggle functionality
 function g:ToggleLineNumbers()
-	setlocal number!
 	setlocal relativenumber!
 endfunction
 
 nnoremap <leader>n :call g:ToggleLineNumbers()<cr>
 
-" these are done when the GUI loads
+" GUI settings on load
 if has('gui_running')
 	" Window size
 	set lines=48 columns=81
@@ -193,6 +178,7 @@ set nowrap
 set linebreak
 set list
 set listchars=tab:▸\ ,extends:>,precedes:\<
+
 " textwidth
 set textwidth=80
 set colorcolumn=+1
@@ -204,3 +190,9 @@ endif
 
 " mouse support
 set mouse=a
+
+
+" ==== Plugins ====
+
+" powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
