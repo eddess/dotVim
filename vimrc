@@ -37,9 +37,10 @@ set history=1000
 " match time
 set matchtime=3
 
-" split location
+" splits
 set splitbelow
 set splitright
+set fillchars+=vert:\ 
 
 " spellchecking
 execute "set dictionary=".g:progdata."/canadian-words.txt"
