@@ -189,6 +189,9 @@ set mouse=a
 " don't fold on open
 set foldlevel=99
 
+" low timeout for esc needs
+set timeoutlen=1000 ttimeoutlen=10
+
 " ==== Plugins ====
 
 " powerline
@@ -205,6 +208,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+" colorscheme
+colorscheme atom-dark
 
 " ==== Filetype settings ====
 " python
