@@ -1,7 +1,7 @@
 " plugin management with pathogen
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim
-silent! execute pathogen#infect()
-
+execute pathogen#infect()
+execute pathogen#helptags()
 
 
 " === General options ===
@@ -15,8 +15,6 @@ execute "set viminfo='20,\"100,:30,%,n".g:progdata."/viminfo.txt"
 set nocompatible
 set encoding=utf-8
 setglobal fileencoding=utf-8
-set modelines=0
-set laststatus=2
 
 " syntax highlighting
 filetype plugin indent on
@@ -180,10 +178,6 @@ set linebreak
 set list
 set listchars=tab:▸\ ,extends:>,precedes:\<
 
-" textwidth
-set textwidth=80
-set colorcolumn=+1
-
 " unmap c-v in normal mode on windows
 if has('win32')
 	nunmap <c-v>
@@ -192,8 +186,49 @@ endif
 " mouse support
 set mouse=a
 
+" don't fold on open
+set foldlevel=99
 
 " ==== Plugins ====
 
 " powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set laststatus=2
+set modelines=0
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" ==== Filetype settings ====
+" python
+augroup python_autocmds
+	autocmd!
+
+" highlight characters past column 120
+	autocmd FileType python highlight Excess ctermbg=Red
+	autocmd FileType python match Excess /\%80v./
+	autocmd FileType python set nowrap
+	autocmd FileType python let g:pymode_rope = 0
+	autocmd FileType python let g:pymode_virtualenv = 1
+
+"Linting
+	autocmd FileType python let g:pymode_lint = 0
+	autocmd FileType python let g:pymode_lint_write = 0
+
+" syntax highlighting
+	autocmd FileType python let g:pymode_syntax = 1
+	autocmd FileType python let g:pymode_syntax_all = 1
+	autocmd FileType python let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+	autocmd FileType python let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" custom lint options
+	autocmd FileType python let g:syntastic_python_checkers = ['pylint']
+
+augroup END
