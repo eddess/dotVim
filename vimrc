@@ -210,7 +210,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " colorscheme
-colorscheme atom-dark
+colorscheme atom-dark-256
 
 " ==== Filetype settings ====
 " python
