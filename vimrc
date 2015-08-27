@@ -191,14 +191,8 @@ set foldlevel=99
 set timeoutlen=1000 ttimeoutlen=10
 
 " ==== Plugins ====
-set noshowmode
-set laststatus=2
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
@@ -206,6 +200,31 @@ let g:syntastic_check_on_wq = 0
 
 " colorscheme
 colorscheme atom-dark-256
+
+
+"==== status line ====
+highlight StatusLine ctermfg=81 ctermbg=16 guifg=#66D9EF guibg=#000000
+set statusline=
+" buffer number
+set statusline+=[%n]
+" tail of file name
+set statusline+=\ %<%.99f
+" help buffer flag
+set statusline+=\ %h
+" preview window flag
+set statusline+=%w
+" modified flag
+set statusline+=%m
+" readonly flag
+set statusline+=%r
+" filetype
+set statusline+=%y
+" left to right separator
+set statusline+=%=
+" line and column and proportion through file
+set statusline+=(%l,%c)\ -\ %P
+set showmode
+set laststatus=2
 
 " ==== Filetype settings ====
 " python
@@ -215,7 +234,6 @@ augroup python_autocmds
 " highlight characters past column 120
 	autocmd FileType python highlight Excess ctermbg=Red
 	autocmd FileType python match Excess /\%80v./
-	autocmd FileType python set nowrap
 	autocmd FileType python let g:pymode_rope = 0
 	autocmd FileType python let g:pymode_virtualenv = 1
 
