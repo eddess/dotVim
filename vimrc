@@ -98,13 +98,11 @@ let maplocalleader="\\"
 set incsearch
 set hlsearch
 
-set noshowmode
-
 " Auto change working directory to current file
 set autochdir
 
 " tab list
-set showtabline=0
+set showtabline=1
 
 " Format Tab titles
 set guitablabel=%N.\ %t\ %M
@@ -193,11 +191,8 @@ set foldlevel=99
 set timeoutlen=1000 ttimeoutlen=10
 
 " ==== Plugins ====
-
-" powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set noshowmode
 set laststatus=2
-set modelines=0
 
 " syntastic
 set statusline+=%#warningmsg#
