@@ -199,7 +199,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " colorscheme
-colorscheme emacs
+colorscheme light-theme
 
 
 "==== status line ====
