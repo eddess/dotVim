@@ -199,7 +199,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " colorscheme
-colorscheme atom-dark-256
+colorscheme emacs
 
 
 "==== status line ====
@@ -248,6 +248,6 @@ augroup python_autocmds
 	autocmd FileType python let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " custom lint options
-	autocmd FileType python let g:syntastic_python_checkers = ['pylint']
+	autocmd FileType python let g:syntastic_python_checkers = ["pylint", "pep8"]
 
 augroup END
