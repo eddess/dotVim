@@ -172,6 +172,7 @@ nnoremap <silent> c/ :let @/=""<cr>
 
 " wrapping options
 set nowrap
+set textwidth=0
 set linebreak
 set list
 set listchars=tab:▸\ ,extends:>,precedes:\<
@@ -203,7 +204,6 @@ colorscheme light-theme
 
 
 "==== status line ====
-highlight StatusLine ctermfg=81 ctermbg=16 guifg=#66D9EF guibg=#000000
 set statusline=
 " buffer number
 set statusline+=[%n]
@@ -232,8 +232,9 @@ augroup python_autocmds
 	autocmd!
 
 " highlight characters past column 120
-	autocmd FileType python highlight Excess ctermbg=Red
 	autocmd FileType python match Excess /\%80v./
+	autocmd FileType python set nowrap
+	autocmd FileType python set textwidth=0
 	autocmd FileType python let g:pymode_rope = 0
 	autocmd FileType python let g:pymode_virtualenv = 1
 
@@ -250,4 +251,6 @@ augroup python_autocmds
 " custom lint options
 	autocmd FileType python let g:syntastic_python_checkers = ["pylint", "pep8"]
 
+" dont show line numbers by default
+	autocmd FileType python set nonumber
 augroup END
