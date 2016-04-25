@@ -5,7 +5,7 @@ execute pathogen#helptags()
 
 
 " === General options ===
-let g:progdata="~/.programdata/vim"
+let g:progdata="~/.vim/data"
 if !isdirectory(expand(g:progdata))
 	call mkdir(expand(g:progdata), "p")
 endif
@@ -38,7 +38,7 @@ set matchtime=3
 " splits
 set splitbelow
 set splitright
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " spellchecking
 execute "set dictionary=".g:progdata."/canadian-words.txt"
@@ -64,7 +64,7 @@ if !isdirectory(expand(&directory))
         call mkdir(expand(&directory), "p")
 endif
 
-set backup 
+set backup
 execute "set backupdir=".g:progdata."/backups//"
 if !isdirectory(expand(&backupdir))
 	call mkdir(expand(&backupdir), "p")
@@ -155,7 +155,7 @@ if has('gui_running')
 
 	" set font
 	if has('mac')
-		autocmd GUIEnter * set guifont=Monaco\ for\ Powerline:h12
+		autocmd GUIEnter * set guifont=Monaco:h12
 	elseif has('win32')
 		autocmd GUIEnter * set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 	endif
@@ -200,7 +200,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " colorscheme
-colorscheme light-theme
+colorscheme dark-theme
 
 
 "==== status line ====
